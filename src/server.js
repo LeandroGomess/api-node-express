@@ -1,17 +1,17 @@
 //const express = require('express')  
 import express from 'express'
+import bodyParser from 'body-parser'
+
 import userRouter from './routers/userRouter.js'
 import productRouter from './routers/productRouter.js'
-import loginRouter from './routers/loginRouter.js'
-import logoutRouter from './routers/logoutRouter.js'
 
 const api = express()
 
+// converte toda requisição com body json para objeto no req.body
+api.use(bodyParser.json())
 
 api.use('/user', userRouter)
 api.use('/product', productRouter)
-api.use('/auth', loginRouter)
-api.use('/auth', logoutRouter)
 
 api.get('/', (req, res) => {
 	res.json({message: "Bem-vindo a nossa API"})

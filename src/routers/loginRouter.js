@@ -1,7 +1,0 @@
-
-
-
-
-
-
-router.post('/', postLogin)
